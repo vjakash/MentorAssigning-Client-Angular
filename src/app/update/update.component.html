@@ -28,7 +28,7 @@
 
     <div class="row">
         <div class="col-lg-12 text-right">
-            <input type="submit" class="btn btn-dark" value="Update" (click)="update()" [disabled]="updateValue.mentorId==''&&updateValue.studentId==''">
+            <input type="submit" class="btn btn-dark" value="Update" (click)="update()" [disabled]="updateValue.mentorId=='' || updateValue.studentId==''">
         </div>
     </div>
 </div>
