@@ -10,6 +10,7 @@ import { CstudentComponent } from './cstudent/cstudent.component';
 import { AssignComponent } from './assign/assign.component';
 import { UpdateComponent } from './update/update.component';
 import { ListComponent } from './list/list.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { ListComponent } from './list/list.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
