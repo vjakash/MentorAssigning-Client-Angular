@@ -14,9 +14,11 @@ import { Router } from '@angular/router';
 })
 export class UpdateComponent implements OnInit {
   updateValue;
-  mId=null;
-  sId=null;
+  mId='';
+  sId='';
   display=false;
+  
+
   constructor(
     private fb: FormBuilder,
     public ser: ServerServService,
@@ -30,10 +32,12 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {}
   onCheckChange(event){
-    this.updateValue.mentorId=parseInt(event.target.value);
+    this.mId=event.target.value;
+    this.updateValue.mentorId=event.target.value;
     console.log(this.updateValue.mentorId)
   }
   change(id,bool){
+    this.sId=id;
     this.updateValue.studentId=id;
     this.display=bool;
   }

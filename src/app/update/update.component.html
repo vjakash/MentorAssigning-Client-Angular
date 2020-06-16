@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <select class="custom-select custom-select-lg mb-3">
                 <option selected>Select a Student</option>
-                <option *ngFor="let item of ser.students" [value]="item.id" (click)="change(item.id,true)">{{item.name}}</option>
+                <option *ngFor="let item of ser.students" [value]="item['_id']" (click)="change(item['_id'],true)">{{item.name}}</option>
               </select>
         </div>
     </div>
@@ -13,7 +13,7 @@
             <div class="col-lg-4">
                 <ng-container>
                     <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header"><input type="radio" [value]="item.id" name="mentor" (click)="onCheckChange($event)"> &nbsp;&nbsp;&nbsp;{{item.name}}</div>
+                        <div class="card-header"><input type="radio" [value]="item['_id']" name="mentor" (click)="onCheckChange($event)"> &nbsp;&nbsp;&nbsp;{{item.name}}</div>
                         <div class="card-body">
                             <h5 class="card-title">Role:{{item.role}}</h5>
                             <h5 class="card-title">Age:{{item.age}}</h5>

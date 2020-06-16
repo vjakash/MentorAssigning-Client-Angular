@@ -41,18 +41,18 @@ export class AssignComponent implements OnInit {
     //   console.log(err);
     // })
     this.assignValues = this.fb.group({
-      mentorId: this.id,
+      mentorId:this.fb.control(''),
       students: this.fb.array([], [Validators.required]),
     });
   }
 
   ngOnInit(): void {}
   change(mid, name, bool) {
-    this.assignValues.mentorId=mid;
+    this.assignValues.mentorId=new FormControl(mid);
     this.id = mid;
     this.mentorName = name;
     this.display = bool;
-    console.log(this.id, this.mentorName,this.assignValues.mentorId);
+    console.log(this.id, this.mentorName,this.assignValues.mentorId.value);
   }
   onCheckChange(event) {
     const formArray: FormArray = this.assignValues.get('students') as FormArray;
@@ -60,7 +60,7 @@ export class AssignComponent implements OnInit {
     /* Selected */
     if (event.target.checked) {
       // Add a new control in the arrayForm
-      formArray.push(new FormControl(parseInt(event.target.value)));
+      formArray.push(new FormControl(event.target.value));
     } else {
     /* unselected */
       // find the unselected element
@@ -79,8 +79,11 @@ export class AssignComponent implements OnInit {
   }
   assign() {
     // [disabled]="!assignValues.valid"
-    console.log(this.ser.students,this.ser.mentor);
-    console.log(this.assignValues.value);
+    // console.log(this.ser.students,this.ser.mentor);
+    let obj=this.assignValues.value;
+    obj.mentorId=this.id;
+    // console.log(obj);
+    // console.log(this.assignValues.value);
     this.ser.assignStudent(this.assignValues.value).subscribe(
       (data) => {
         this.ser.listOfMentors();

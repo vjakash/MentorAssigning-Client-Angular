@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urltest:"http://localhost:3000",
+  urlprod:"https://mentor-assigner.herokuapp.com"
 };
 
 /*
