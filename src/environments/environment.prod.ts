@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlprod:"https://mentor-assigner.herokuapp.com"
 };
