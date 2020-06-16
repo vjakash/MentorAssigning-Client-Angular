@@ -9,10 +9,10 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [{
   path:'',
-  component:CmentorComponent
-},{
-  path:'create-student',
   component:CstudentComponent
+},{
+  path:'create-mentor',
+  component: CmentorComponent
 },{
   path:'assign',
   component:AssignComponent
